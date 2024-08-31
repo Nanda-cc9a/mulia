@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "author": "law moba",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 115.8, "left": -58.2, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -89.6,
+      "left": 264.8,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 82.8, "left": 330.2, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 138.35,
+      "left": 268.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 97.5,
+      "left": 399.1,
+      "attrs": { "distance": "132" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 196, "left": -199.38, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -237.6,
+      "left": 30.6,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "uno:GND.1", "lcd1:GND", "black", [ "v0" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-38.4", "v384.1", "h-124.8" ] ],
+    [ "lcd1:SDA", "uno:A4.2", "gold", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5.2", "green", [ "h0" ] ],
+    [ "r1:1", "uno:2", "green", [ "v0", "h-57.6", "v-48", "h-28.8" ] ],
+    [ "ultrasonic1:VCC", "uno:5V", "red", [ "v172.8", "h-384" ] ],
+    [ "ultrasonic1:GND", "uno:GND.3", "black", [ "v192", "h-375.6" ] ],
+    [ "ultrasonic1:TRIG", "uno:3", "blue", [ "v57.6", "h-240.4", "v-182.4", "h-67.2" ] ],
+    [ "ultrasonic1:ECHO", "uno:4", "green", [ "v76.8", "h-240.8", "v-220.8", "h-86.4" ] ],
+    [ "pir1:VCC", "uno:5V", "red", [ "v96", "h249.6" ] ],
+    [ "pir1:GND", "uno:GND.3", "black", [ "v76.8", "h249.34" ] ],
+    [ "pir1:OUT", "uno:10", "green", [ "v28.8", "h57.46", "v-230.4", "h172.8" ] ],
+    [ "r1:2", "led1:A", "green", [ "v0", "h27.6" ] ],
+    [ "led1:C", "uno:GND.3", "black", [ "v220.8", "h-230" ] ],
+    [ "uno:7", "bz1:2", "green", [ "v0" ] ],
+    [ "bz1:1", "uno:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
